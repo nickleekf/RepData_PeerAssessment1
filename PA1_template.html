@@ -107,7 +107,7 @@ plot(y = avgDailyActivity,
 </div>
 <div id="imputing-missing-values" class="section level3">
 <h3>4. Imputing missing values</h3>
-<p>Current situation: The total number of missing values is 2,304 of the total 17,568 observations. All of the missing values fall under the ‘Steps’ variable.<br />The strategy for imputing missing data: Replace missing values (na) with the mean of the 5-minute interval.</p>
+<p>Current situation: The total number of missing values is 2,304 of the total 17,568 observations. All of the missing values fall under the ‘Steps’ variable.<br />The strategy for imputing missing data: Replace missing values (na) with the mean of the 5-minute interval.<br />The impact of imputing missing data with the mean of 5-minute interval. See results above:<br /> * For the mean, there is no impact<br /> * For the median, there is minimal impact where the median is increased by 1.189</p>
 <pre class="r"><code>sum(is.na(dfActivity))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <pre class="r"><code>sum(is.na(dfActivity$steps))</code></pre>
@@ -138,10 +138,10 @@ abline(v = median(stepsPerDay_new), col = 4, lwd = 4)</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>median(stepsPerDay_new)-median(stepsPerDay)</code></pre>
 <pre><code>## [1] 1.188679</code></pre>
-<p>The impact of imputing missing data with the mean of 5-minute interval. See results above:<br /> * For the mean, there is no impact<br /> * For the median, there is minimal impact where the median is increased by 1.189</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level3">
 <h3>5. Are there differences in activity patterns between weekdays and weekends?</h3>
+<p>There are differences in activity patterns between weekdays and weekends. There are generally more steps taken during weekends. However, notice that during weekdays there is a spike in average steps between interval 800 and 1000.</p>
 <pre class="r"><code>dayType &lt;- function(dates) 
 {
   f &lt;- function(date) 

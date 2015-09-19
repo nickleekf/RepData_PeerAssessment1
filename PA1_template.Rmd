@@ -48,8 +48,10 @@ It recorded a total average of 206.17 steps.
 
 ### 4. Imputing missing values
 Current situation: The total number of missing values is 2,304 of the total 17,568 observations. All of the missing values fall under the 'Steps' variable.  
-The strategy for imputing missing data: Replace missing values (na) with the mean of the 5-minute interval.
-
+The strategy for imputing missing data: Replace missing values (na) with the mean of the 5-minute interval.  
+The impact of imputing missing data with the mean of 5-minute interval. See results above:   
+ * For the mean, there is no impact  
+ * For the median, there is minimal impact where the median is increased by 1.189  
 ```{r, echo=TRUE}
 sum(is.na(dfActivity))
 sum(is.na(dfActivity$steps))
@@ -78,13 +80,11 @@ abline(v = median(stepsPerDay_new), col = 4, lwd = 4)
 mean(stepsPerDay_new)-mean(stepsPerDay)
 median(stepsPerDay_new)-median(stepsPerDay)
 ```
-The impact of imputing missing data with the mean of 5-minute interval. See results above:   
- * For the mean, there is no impact  
- * For the median, there is minimal impact where the median is increased by 1.189    
-
   
 
 ### 5. Are there differences in activity patterns between weekdays and weekends?
+There are differences in activity patterns between weekdays and weekends. There are generally more steps taken during weekends. However, notice that during weekdays there is a spike in average steps between interval 800 and 1000.
+
 ```{r, echo=TRUE }
 dayType <- function(dates) 
 {
