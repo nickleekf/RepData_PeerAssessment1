@@ -263,18 +263,19 @@ plot(y = avgDailyActivity,
 ## 206.1698
 </code></pre>
 
-<p>The 5-minute interval that, on average, contains the maximum number of steps is at interval 835.<br/>
+<p>The 5-minute interval that contains the maximum average number of steps is at interval 835.<br/>
 It recorded a total average of 206.17 steps.  </p>
 
 <h3>4. Imputing missing values</h3>
 
 <p>Current situation: The total number of missing values is 2,304 of the total 17,568 observations. All of the missing values fall under the &#39;Steps&#39; variable.<br/>
 The strategy for imputing missing data: Replace missing values (na) with the mean of the 5-minute interval.<br/>
-The impact of imputing missing data with the mean of 5-minute interval. See results above:   </p>
+The impact of imputing missing data with the mean of 5-minute interval.</p>
 
 <ul>
 <li>For the mean, there is no impact<br/></li>
-<li>For the median, there is minimal impact where the median is increased by 1.189<br/></li>
+<li>For the median, there is minimal impact where the median is increased by 1.189<br/>
+See results below. </li>
 </ul>
 
 <pre><code class="r">sum(is.na(dfActivity))
